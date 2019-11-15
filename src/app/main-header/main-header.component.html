@@ -7,4 +7,13 @@
 <div class="content">
     <p>Schedule, Plan, and Enjoy!</p>
 </div>
+<div>
+        <router-outlet></router-outlet>
+</div>
+<button (click)="navigateTo('events')" class="btn btn-outline-info">
+        Event
+      </button>
+      <button (click)="navigateTo('')" class="btn btn-outline-info">
+          Home
+        </button>
 

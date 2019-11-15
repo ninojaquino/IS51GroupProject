@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-header',
@@ -19,7 +20,7 @@ groupMember3: string;
 groupMember4: string;
 
 
-constructor() {
+constructor(private router: Router) {
   this.groupMember = 'Nino';
   this.groupMember2 = 'AJ';
   this.groupMember3 = 'Ally';
@@ -36,5 +37,9 @@ resetGreeting() {
   const row2 = document.getElementById('greeting');
   row2.innerHTML = 'Welcome to "The Noobs Schedule Calendar!';
 
+}
+
+navigateTo(path: string) {
+  this.router.navigate([path]);
 }
 }
