@@ -13,6 +13,12 @@ import { FormsModule } from '@angular/forms';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { FlatpickrModule } from 'angularx-flatpickr';
 import { CommonModule } from '@angular/common';
+import { HomeComponent } from './home/home.component';
+
+import { AppRoutes } from './app.routes';
+import { EventsComponent } from './events/events.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { MainNavComponent } from './main-nav/main-nav.component';
 
 
 @NgModule({
@@ -20,10 +26,15 @@ import { CommonModule } from '@angular/common';
     AppComponent,
     MainHeaderComponent,
     MainContentComponent,
-    MainFooterComponent
+    MainFooterComponent,
+    HomeComponent,
+    EventsComponent,
+    CalendarComponent,
+    MainNavComponent
   ],
   imports: [
     BrowserAnimationsModule,
+    AppRoutes,
     CommonModule,
     CalendarCommonModule,
     CalendarMonthModule,

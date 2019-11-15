@@ -10,4 +10,15 @@ pre {
   .pull-right{
     float: right;
 }
+.move-left {
+  float: left;
+}
+
+.main-paddinng {
+  display: grid;
+  border: 12px;
+  grid-template-rows: 1fr 12fr 1fr;
+}
+
+
 
