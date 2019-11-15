@@ -17,6 +17,8 @@ import { HomeComponent } from './home/home.component';
 
 import { AppRoutes } from './app.routes';
 import { EventsComponent } from './events/events.component';
+import { CalendarComponent } from './calendar/calendar.component';
+import { MainNavComponent } from './main-nav/main-nav.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { EventsComponent } from './events/events.component';
     MainContentComponent,
     MainFooterComponent,
     HomeComponent,
-    EventsComponent
+    EventsComponent,
+    CalendarComponent,
+    MainNavComponent
   ],
   imports: [
     BrowserAnimationsModule,
