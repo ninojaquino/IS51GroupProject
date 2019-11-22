@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 
-
 @Component({
   selector: 'app-main-header',
   templateUrl: './main-header.component.html',
@@ -13,8 +12,8 @@ export class MainHeaderComponent implements OnInit {
   groupMember4: string;
   constructor() {
     this.groupMember = 'Nino';
-    this.groupMember2 = 'AJ';
-    this.groupMember3 = 'Ally';
+    this.groupMember2 = 'Akaljot';
+    this.groupMember3 = 'Alison';
     this.groupMember4 = 'Jose';
   }
   ngOnInit() {
@@ -29,7 +28,7 @@ export class MainHeaderComponent implements OnInit {
 
   resetGreeting() {
     const row2 = document.getElementById('greeting');
-    row2.innerHTML = 'Welcome to "The Noobs Schedule Calendar!';
+    row2.innerHTML = `Welcome to "Team Noobs' Schedule Calendar!`;
 
   }
 
