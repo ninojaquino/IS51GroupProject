@@ -19,7 +19,7 @@ import { AppRoutes } from './app.routes';
 import { EventsComponent } from './events/events.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
-
+import { ToastModule } from './toast/toast.module';
 
 @NgModule({
   declarations: [
@@ -42,6 +42,7 @@ import { MainNavComponent } from './main-nav/main-nav.component';
     NgbModalModule,
     BrowserModule,
     FormsModule,
+    ToastModule,
     FlatpickrModule.forRoot(),
     CalendarModule.forRoot({
       provide: DateAdapter,

@@ -7,3 +7,9 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.cal-month-view {
+    height: 500px;
+    overflow: auto;
+    padding-bottom: 30px;
+}
