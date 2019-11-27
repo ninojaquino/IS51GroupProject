@@ -89,7 +89,7 @@ export class CalendarComponent implements OnInit {
         beforeStart: true,
         afterEnd: true
       },
-      draggable: true
+      draggable: false
     },
     {
       start: startOfDay(new Date()),
@@ -107,14 +107,14 @@ export class CalendarComponent implements OnInit {
     {
       start: addHours(startOfDay(new Date()), 2),
       end: new Date(),
-      title: 'A draggable and resizable event',
+      title: 'Another event',
       color: colors.yellow,
       actions: this.actions,
       resizable: {
         beforeStart: true,
         afterEnd: true
       },
-      draggable: true
+      draggable: false
     }
   ];
 
@@ -188,7 +188,7 @@ export class CalendarComponent implements OnInit {
   }
   getItemsFromLocalStorage(key: string) {
     let savedEvents = null;
-    if(localStorage.getItem(key)) {
+    if (localStorage.getItem(key)) {
       savedEvents = JSON.parse(localStorage.getItem(key));
     }
     console.log('from getItemsFromLocalStorage savedEvents', savedEvents);
