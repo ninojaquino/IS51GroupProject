@@ -80,7 +80,7 @@ export class EventsComponent implements OnInit {
         beforeStart: true,
         afterEnd: true
       },
-      draggable: true
+      draggable: false
     },
     {
       start: startOfDay(new Date()),
@@ -98,14 +98,14 @@ export class EventsComponent implements OnInit {
     {
       start: addHours(startOfDay(new Date()), 2),
       end: new Date(),
-      title: 'A draggable and resizable event',
+      title: 'Another event',
       color: colors.yellow,
       actions: this.actions,
       resizable: {
         beforeStart: true,
         afterEnd: true
       },
-      draggable: true
+      draggable: false
     }
   ];
 
@@ -144,7 +144,7 @@ export class EventsComponent implements OnInit {
         start: startOfDay(new Date()),
         end: endOfDay(new Date()),
         color: colors.red,
-        draggable: true,
+        draggable: false,
         resizable: {
           beforeStart: true,
           afterEnd: true
