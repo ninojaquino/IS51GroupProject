@@ -1,9 +1,10 @@
-import { 
-  Component, 
+import {
+  Component,
   OnInit,
   ChangeDetectionStrategy,
   ViewChild,
-  TemplateRef, } from '@angular/core';
+  TemplateRef,
+} from '@angular/core';
 import {
   startOfDay,
   endOfDay,
@@ -22,6 +23,7 @@ import {
   CalendarEventTimesChangedEvent,
   CalendarView
 } from 'angular-calendar';
+import { LocalStorageService } from '../localStorageService';
 
 const colors: any = {
   red: {
@@ -117,10 +119,19 @@ export class CalendarComponent implements OnInit {
   ];
 
   activeDayIsOpen = true;
-
-  constructor(private modal: NgbModal) { }
+  localStorageService: LocalStorageService<CalendarEvent>;
+  constructor(private modal: NgbModal) {
+    this.localStorageService = new LocalStorageService('events');
+  }
 
   ngOnInit() {
+    const savedEvents = this.getItemsFromLocalStorage('events');
+    if (savedEvents == null) {
+      localStorage.setItem('events', JSON.stringify(this.events));
+    }
+    console.log('asdf asdf', savedEvents);
+    this.events = savedEvents;
+    console.log('from calendar service on init', this.events);
 
   }
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
@@ -157,7 +168,7 @@ export class CalendarComponent implements OnInit {
 
   handleEvent(action: string, event: CalendarEvent): void {
     this.modalData = { event, action };
-    this.modal.open(this.modalContent, { size: 'lg' });
+    // this.modal.open(this.modalContent, { size: 'lg' });
   }
 
   deleteEvent(eventToDelete: CalendarEvent) {
@@ -172,5 +183,22 @@ export class CalendarComponent implements OnInit {
     this.activeDayIsOpen = false;
   }
 
+  getItemsFromLocalStorage(key: string) {
+    const savedEvents = JSON.parse(localStorage.getItem(key));
+    console.log('from getItemsFromLocalStorage savedEvents', savedEvents);
+
+    if (savedEvents.length > 0 ) {
+      const parsedEvents = savedEvents.map((item, i, a) => {
+        console.log('from map......', item);
+        item.start = new Date(item.start);
+        item.end = new Date(item.end);
+        return item;
+      });
+      this.events = parsedEvents;
+      return parsedEvents;
+    } else {
+      return [];
+    }
+  }
 
 }

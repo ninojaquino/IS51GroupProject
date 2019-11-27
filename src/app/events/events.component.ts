@@ -1,4 +1,4 @@
-
+import { LocalStorageService } from '../localStorageService';
 import {
   Component,
   ChangeDetectionStrategy,
@@ -24,6 +24,8 @@ import {
   CalendarEventTimesChangedEvent,
   CalendarView
 } from 'angular-calendar';
+import { Local } from 'protractor/built/driverProviders';
+import { ToastService, IToast } from '../toast/toast.service';
 
 const colors: any = {
   red: {
@@ -78,7 +80,7 @@ export class EventsComponent implements OnInit {
         beforeStart: true,
         afterEnd: true
       },
-      draggable: true
+      draggable: false
     },
     {
       start: startOfDay(new Date()),
@@ -96,27 +98,43 @@ export class EventsComponent implements OnInit {
     {
       start: addHours(startOfDay(new Date()), 2),
       end: new Date(),
-      title: 'A draggable and resizable event',
+      title: 'Another event',
       color: colors.yellow,
       actions: this.actions,
       resizable: {
         beforeStart: true,
         afterEnd: true
       },
-      draggable: true
+      draggable: false
     }
   ];
-  constructor(private modal: NgbModal) { }
+
+
+  localStorageService: LocalStorageService<CalendarEvent>;
+  toastTypes: Array<string> = [];
+  toastChallenges: Array<string> = [];
+  constructor(private modal: NgbModal, private toastService: ToastService) {
+    this.localStorageService = new LocalStorageService('events');
+    this.toastTypes = ['success', 'info', 'warning', 'danger'];
+    this.toastChallenges = ['challenge 1: Say hi to a stranger', 'challenge 2: Treat your friend',
+    'challenge 3: Call a loved one and ask how they are doing',
+    'challenge 4: Assist an elderly', 'challenge 5: Do ten push ups', 'challenge 6: Run a mile',
+     'challenge 7: Placeholder'];
+  }
 
   ngOnInit() {
+      const savedEvents = this.getItemsFromLocalStorage('events');
+      this.events = savedEvents;
   }
 
   deleteEvent(eventToDelete: CalendarEvent) {
     this.events = this.events.filter(event => event !== eventToDelete);
+    // this delete works it deletes the item from local storage but its giving an error gotta ask for help
+    // this.saveItemsToLocalStorage(this.events);
   }
   handleEvent(action: string, event: CalendarEvent): void {
     this.modalData = { event, action };
-    this.modal.open(this.modalContent, { size: 'lg' });
+    // this.modal.open(this.modalContent, { size: 'lg' });
   }
   addEvent(): void {
     this.events = [
@@ -126,7 +144,7 @@ export class EventsComponent implements OnInit {
         start: startOfDay(new Date()),
         end: endOfDay(new Date()),
         color: colors.red,
-        draggable: true,
+        draggable: false,
         resizable: {
           beforeStart: true,
           afterEnd: true
@@ -134,4 +152,31 @@ export class EventsComponent implements OnInit {
       }
     ];
   }
+
+  saveItemsToLocalStorage(events: CalendarEvent) {
+    const savedEvents = localStorage.setItem('events', JSON.stringify(events));
+  }
+
+  getItemsFromLocalStorage(key: string) {
+    const savedEvents = JSON.parse(localStorage.getItem(key));
+    this.localStorageService.getItemsFromLocalStorage(key);
+    this.events = savedEvents;
+    return savedEvents;
+  }
+
+  toastDailyChallenge() {
+    const rand = Math.floor(Math.random() * 7);
+    const randomToastType = Math.floor(Math.random() * 4);
+    const toastType = this.toastTypes[randomToastType];
+    const toastMessage = 'Your daily challenge is: ' + this.toastChallenges[rand];
+    const duration = 5500;
+    const toastOptions: IToast = {
+      message: toastMessage,
+      timeout: duration,
+      info: toastType
+    };
+    this.toastService.showToast(toastOptions.info, toastOptions.message, toastOptions.timeout);
+  }
+
+
 }

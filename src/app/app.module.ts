@@ -19,7 +19,11 @@ import { AppRoutes } from './app.routes';
 import { EventsComponent } from './events/events.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
+
 import { ZodiacSignsComponent } from './zodiac-signs/zodiac-signs.component';
+
+
+import { ToastModule } from './toast/toast.module';
 
 
 @NgModule({
@@ -44,6 +48,7 @@ import { ZodiacSignsComponent } from './zodiac-signs/zodiac-signs.component';
     NgbModalModule,
     BrowserModule,
     FormsModule,
+    ToastModule,
     FlatpickrModule.forRoot(),
     CalendarModule.forRoot({
       provide: DateAdapter,
