@@ -19,6 +19,7 @@ import { AppRoutes } from './app.routes';
 import { EventsComponent } from './events/events.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
+import { ZodiacSignsComponent } from './zodiac-signs/zodiac-signs.component';
 
 
 @NgModule({
@@ -29,8 +30,9 @@ import { MainNavComponent } from './main-nav/main-nav.component';
     MainFooterComponent,
     HomeComponent,
     EventsComponent,
+    ZodiacSignsComponent,
     CalendarComponent,
-    MainNavComponent
+    MainNavComponent,
   ],
   imports: [
     BrowserAnimationsModule,
