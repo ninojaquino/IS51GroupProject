@@ -126,6 +126,10 @@ export class CalendarComponent implements OnInit {
 
   ngOnInit() {
     const savedEvents = this.getItemsFromLocalStorage('events');
+    if (savedEvents == null) {
+      localStorage.setItem('events', JSON.stringify(this.events));
+    }
+    console.log('asdf asdf', savedEvents);
     this.events = savedEvents;
     console.log('from calendar service on init', this.events);
 
@@ -183,14 +187,18 @@ export class CalendarComponent implements OnInit {
     const savedEvents = JSON.parse(localStorage.getItem(key));
     console.log('from getItemsFromLocalStorage savedEvents', savedEvents);
 
-    const parsedEvents = savedEvents.map((item, i, a) => {
-      console.log('from map......', item);
-      item.start = new Date(item.start);
-      item.end = new Date(item.end);
-      return item;
-    });
-    this.events = parsedEvents;
-    return parsedEvents;
+    if (savedEvents.length > 0 ) {
+      const parsedEvents = savedEvents.map((item, i, a) => {
+        console.log('from map......', item);
+        item.start = new Date(item.start);
+        item.end = new Date(item.end);
+        return item;
+      });
+      this.events = parsedEvents;
+      return parsedEvents;
+    } else {
+      return [];
+    }
   }
 
 }
