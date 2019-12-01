@@ -188,7 +188,7 @@ export class CalendarComponent implements OnInit {
   }
   getItemsFromLocalStorage(key: string) {
     let savedEvents = null;
-    if(localStorage.getItem(key)) {
+    if (localStorage.getItem(key)) {
       savedEvents = JSON.parse(localStorage.getItem(key));
     }
     console.log('from getItemsFromLocalStorage savedEvents', savedEvents);
