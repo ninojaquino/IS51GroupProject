@@ -77,7 +77,7 @@ export class CalendarComponent implements OnInit {
 
   refresh: Subject<any> = new Subject();
 
-  events: CalendarEvent[] = [
+  events: Array<CalendarEvent> = [
     {
       start: subDays(startOfDay(new Date()), 1),
       end: addDays(new Date(), 1),
@@ -89,7 +89,7 @@ export class CalendarComponent implements OnInit {
         beforeStart: true,
         afterEnd: true
       },
-      draggable: true
+      draggable: false
     },
     {
       start: startOfDay(new Date()),
@@ -107,14 +107,14 @@ export class CalendarComponent implements OnInit {
     {
       start: addHours(startOfDay(new Date()), 2),
       end: new Date(),
-      title: 'A draggable and resizable event',
+      title: 'Another event',
       color: colors.yellow,
       actions: this.actions,
       resizable: {
         beforeStart: true,
         afterEnd: true
       },
-      draggable: true
+      draggable: false
     }
   ];
 
@@ -182,12 +182,18 @@ export class CalendarComponent implements OnInit {
   closeOpenMonthViewDay() {
     this.activeDayIsOpen = false;
   }
-
+  saveItemsToLocalStorage(events: CalendarEvent) {
+    const savedEvents = localStorage.setItem('events', JSON.stringify(events));
+    return savedEvents;
+  }
   getItemsFromLocalStorage(key: string) {
-    const savedEvents = JSON.parse(localStorage.getItem(key));
+    let savedEvents = null;
+    if (localStorage.getItem(key)) {
+      savedEvents = JSON.parse(localStorage.getItem(key));
+    }
     console.log('from getItemsFromLocalStorage savedEvents', savedEvents);
 
-    if (savedEvents.length > 0 ) {
+    if (savedEvents && savedEvents.length > 0 ) {
       const parsedEvents = savedEvents.map((item, i, a) => {
         console.log('from map......', item);
         item.start = new Date(item.start);
@@ -197,7 +203,7 @@ export class CalendarComponent implements OnInit {
       this.events = parsedEvents;
       return parsedEvents;
     } else {
-      return [];
+      return this.saveItemsToLocalStorage(this.events as any);
     }
   }
 
