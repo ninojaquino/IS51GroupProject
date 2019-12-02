@@ -130,7 +130,7 @@ export class EventsComponent implements OnInit {
   deleteEvent(eventToDelete: CalendarEvent) {
     this.events = this.events.filter(event => event !== eventToDelete);
     // this delete works it deletes the item from local storage but its giving an error gotta ask for help
-    // this.saveItemsToLocalStorage(this.events);
+    this.saveItemsToLocalStorage(this.events as any);
   }
   handleEvent(action: string, event: CalendarEvent): void {
     this.modalData = { event, action };
@@ -151,6 +151,7 @@ export class EventsComponent implements OnInit {
         }
       }
     ];
+    this.saveItemsToLocalStorage(this.events as any);
   }
 
   saveItemsToLocalStorage(events: CalendarEvent) {
