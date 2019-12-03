@@ -4,6 +4,7 @@ import { MainContentComponent } from './main-content/main-content.component';
 import { EventsComponent } from './events/events.component';
 
 
+
 const routes: Routes = [
 
     {
