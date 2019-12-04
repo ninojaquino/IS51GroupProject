@@ -14,6 +14,7 @@ import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { FlatpickrModule } from 'angularx-flatpickr';
 import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
+import { MaterialDesignModule } from './material-design/material-design.module';
 
 import { AppRoutes } from './app.routes';
 import { EventsComponent } from './events/events.component';
@@ -49,6 +50,7 @@ import { ToastModule } from './toast/toast.module';
     BrowserModule,
     FormsModule,
     ToastModule,
+    MaterialDesignModule,
     FlatpickrModule.forRoot(),
     CalendarModule.forRoot({
       provide: DateAdapter,

@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
 import { ZodiacSignsComponent } from './zodiac-signs/zodiac-signs.component';
 
 
+
 const routes: Routes = [
 
     {
