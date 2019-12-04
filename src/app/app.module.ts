@@ -19,7 +19,12 @@ import { AppRoutes } from './app.routes';
 import { EventsComponent } from './events/events.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
+
+import { ZodiacSignsComponent } from './zodiac-signs/zodiac-signs.component';
+
+
 import { ToastModule } from './toast/toast.module';
+
 
 @NgModule({
   declarations: [
@@ -29,8 +34,9 @@ import { ToastModule } from './toast/toast.module';
     MainFooterComponent,
     HomeComponent,
     EventsComponent,
+    ZodiacSignsComponent,
     CalendarComponent,
-    MainNavComponent
+    MainNavComponent,
   ],
   imports: [
     BrowserAnimationsModule,
