@@ -19,6 +19,7 @@ export class ZodiacSignsComponent implements OnInit {
   zodiacs: Array<Izodiac> = [];
   // nameInput = ' ';
 
+  // date = '';
   constructor() {
   }
 
@@ -27,7 +28,8 @@ export class ZodiacSignsComponent implements OnInit {
   }
 
 
-  zodiac(month, day) {
+
+zodiac(month, day) {
     let astroSign = '';
 
     // checks month and date within the
@@ -137,6 +139,10 @@ export class ZodiacSignsComponent implements OnInit {
   //     console.log(key, value);            //'A' 1 'B' 2 'C' 3
   // }
 
+}
+
+ZodiacCalculate() {
+  alert('Placeholder, display Zodiac function result here');
 }
 
 
