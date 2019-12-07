@@ -6,13 +6,13 @@
               Previous 
             </div> -->
       <div mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay()">
-        <button mat-flat-button color="accent" class="events-buttons">Previous</button>
+        <button mat-flat-button color="accent" class="btn btn-outline-info events-buttons">Previous</button>
       </div>
       <div mwlCalendarToday [(viewDate)]="viewDate">
-        <button mat-raised-button color="primary" class="events-buttons">Today</button>
+        <button mat-raised-button color="primary" class="btn btn-outline-info events-buttons">Today</button>
       </div>
       <div mwlCalendarNextView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay()">
-        <button mat-flat-button color="accent" class="events-buttons">Next</button>
+        <button mat-flat-button color="accent" class="btn btn-outline-info events-buttons">Next</button>
       </div>
       <!-- <button class="btn btn-outline-primary pull-right events-buttons" (click)="getItemsFromLocalStorage('events')">
                 Load Events
@@ -25,13 +25,13 @@
   <div class="col-md-4">
     <div class="btn-group">
       <div (click)="setView(CalendarView.Month)" [class.active]="view === CalendarView.Month">
-        <button mat-raised-button color="primary" class="events-buttons">Month</button>
+        <button mat-raised-button color="primary" class="btn btn-outline-info events-buttons">Month</button>
       </div>
       <div (click)="setView(CalendarView.Week)" [class.active]="view === CalendarView.Week">
-        <button mat-raised-button color="primary" class="events-buttons">Week</button>
+        <button mat-raised-button color="primary" class="btn btn-outline-info events-buttons">Week</button>
       </div>
       <div (click)="setView(CalendarView.Day)" [class.active]="view === CalendarView.Day">
-        <button mat-raised-button color="primary" class="events-buttons">Day</button>
+        <button mat-raised-button color="primary" class="btn btn-outline-info events-buttons">Day</button>
       </div>
     </div>
   </div>
@@ -40,12 +40,12 @@
 <div [ngSwitch]="view">
   <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month" [viewDate]="viewDate" [events]="events"
     [refresh]="refresh" [activeDayIsOpen]="activeDayIsOpen" (dayClicked)="dayClicked($event.day)"
-    (eventTimesChanged)="eventTimesChanged($event)">
+    (eventTimesChanged)="eventTimesChanged($event)" class="month-row">
   </mwl-calendar-month-view>
   <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week" [viewDate]="viewDate" [events]="events" [refresh]="refresh"
     (eventTimesChanged)="eventTimesChanged($event)">
   </mwl-calendar-week-view>
   <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [events]="events" [refresh]="refresh"
-    (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)">
+    (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)" class="day-row">
   </mwl-calendar-day-view>
 </div>

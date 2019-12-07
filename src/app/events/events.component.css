@@ -1,10 +1,33 @@
 .events-buttons {
     margin-right: 5px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 .main-title {
     margin-bottom: 15px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 40px;
+    text-align: center;
+    color: #015670;
+}
+
+/* .main-title::after {
+    content: " ";
+    background-color: #015670;
+    width: 150px;
+    height: 3px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+} */
+
+.table-title {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+}
+
+.form-control {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
