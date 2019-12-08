@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { MonthPickerComponent } from 'ngx-bootstrap';
 // import { Http } from '@angular/http';
 interface Izodiac {
   name: string;
@@ -29,9 +30,9 @@ export class ZodiacSignsComponent implements OnInit {
 
 
 
-zodiac(month, day) {
+  zodiac(month, day) {
     let astroSign = '';
-
+    alert(astroSign);
     // checks month and date within the
     // valid range of a specified zodiac
     if (month === 'december') {
@@ -110,40 +111,43 @@ zodiac(month, day) {
     }
 
     return astroSign;
+    
   }
 
   doSomething() {
-  let map = new Map();
-  map.set('Ali', this.zodiac('december', 25));
-  map.set('Alejandra', this.zodiac('september', 26));
-  map.set('Melvin', this.zodiac('june', 16));
-  map.set('Angeles', this.zodiac('august', 21));
+    let map = new Map();
+    map.set('Ali', this.zodiac('december', 25));
+    map.set('Alejandra', this.zodiac('september', 26));
+    map.set('Melvin', this.zodiac('june', 16));
+    map.set('Angeles', this.zodiac('august', 21));
 
-  // Iterate over map keys
-  // for (let key of map.keys()) {
-  //    console.log(key);                   //A B C
-  // }
+    // Iterate over map keys
+    // for (let key of map.keys()) {
+    //    console.log(key);                   //A B C
+    // }
 
-  // Iterate over map values
-  // for (let value of map.values()) {
-  //     console.log(value);                 //1 2 3
-  // }
+    // Iterate over map values
+    // for (let value of map.values()) {
+    //     console.log(value);                 //1 2 3
+    // }
 
-  // Iterate over map entries
-  for (let entry of map.entries()) {
-    console.log(entry[0], entry[1]);    // 'A' 1 'B' 2 'C' 3
+    // Iterate over map entries
+    for (let entry of map.entries()) {
+      console.log(entry[0], entry[1]);    // 'A' 1 'B' 2 'C' 3
+    }
+
+    // Using object destructuring
+    // for (let [key, value] of map) {
+    //     console.log(key, value);            //'A' 1 'B' 2 'C' 3
+    // }
+
   }
 
-  // Using object destructuring
-  // for (let [key, value] of map) {
-  //     console.log(key, value);            //'A' 1 'B' 2 'C' 3
-  // }
+  ZodiacCalculate() {
+    //this.zodiac(month, day);
 
-}
-
-ZodiacCalculate() {
-  alert('Placeholder, display Zodiac function result here');
-}
+    alert('Placeholder, display Zodiac function result here');
+  }
 
 
 
