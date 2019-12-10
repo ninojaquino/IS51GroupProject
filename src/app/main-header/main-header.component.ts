@@ -28,7 +28,7 @@ export class MainHeaderComponent implements OnInit {
 
   resetGreeting() {
     const row2 = document.getElementById('greeting');
-    row2.innerHTML = `Welcome to "Team Noobs' Schedule Calendar!`;
+    row2.innerHTML = `Welcome to "Team Noobs' Schedule Calendar!"`;
 
   }
 

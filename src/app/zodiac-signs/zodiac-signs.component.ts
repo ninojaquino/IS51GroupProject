@@ -35,8 +35,6 @@ export class ZodiacSignsComponent implements OnInit {
     const astroSign = '';
     month = this.month.toLowerCase();
     day = this.day;
-    // checks month and date within the
-    // valid range of a specified zodiac
     if (month === 'december') {
 
       if (day < 22) {
