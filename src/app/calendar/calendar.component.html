@@ -1,10 +1,6 @@
 <div class="row text-center main-padding">
   <div class="col-md-4">
     <div class="btn-group">
-      <!-- <div class="btn btn-primary" mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate"
-              (viewDateChange)="closeOpenMonthViewDay()"> 
-              Previous 
-            </div> -->
       <div mwlCalendarPreviousView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay()">
         <button mat-flat-button color="accent" class="btn btn-outline-info events-buttons">Previous</button>
       </div>
@@ -14,13 +10,10 @@
       <div mwlCalendarNextView [view]="view" [(viewDate)]="viewDate" (viewDateChange)="closeOpenMonthViewDay()">
         <button mat-flat-button color="accent" class="btn btn-outline-info events-buttons">Next</button>
       </div>
-      <!-- <button class="btn btn-outline-primary pull-right events-buttons" (click)="getItemsFromLocalStorage('events')">
-                Load Events
-                </button> -->
     </div>
   </div>
   <div class="col-md-4 name-cal">
-    <h3>{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
+    <h3 class="viewDate">{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</h3>
   </div>
   <div class="col-md-4">
     <div class="btn-group">
@@ -46,6 +39,7 @@
     (eventTimesChanged)="eventTimesChanged($event)">
   </mwl-calendar-week-view>
   <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day" [viewDate]="viewDate" [events]="events" [refresh]="refresh"
-    (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)" class="day-row">
+    (eventClicked)="handleEvent('Clicked', $event.event)" (eventTimesChanged)="eventTimesChanged($event)"
+    class="day-row">
   </mwl-calendar-day-view>
 </div>

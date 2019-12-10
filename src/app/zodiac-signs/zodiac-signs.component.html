@@ -1,39 +1,10 @@
-<!-- <table class="table">
-    <thead class="thread-dark">
-        <tr>
-            <th scope="col" class="main-title">Zodiac!</th>
-            <th>
-                <div class="btn-group pull-left">
-                    <button mat-raised-button color="primary" type="submit" (click)="zodiac()"
-                        class="btn btn-outline-info">
-                        Calculate
-                    </button>
-                </div>
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th>
-                <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter birthday">
-                <output type="text" class="form-control" id="formGroupExampleInput"></output>
-            </th>
-        </tr>
-    </tbody>
-</table>
-
-<form> -->
-
 <table class="table">
     <thead class="thread-dark">
         <tr>
             <th scope="col" class="main-title">Zodiac!</th>
             <th>
                 <div class="btn-group pull-left">
-                    <button mat-raised-button color="primary" type="submit" (click)="zodiac(month,day)"
-                        class="btn btn-outline-info">
-                        Calculate
-                    </button>
+                    <button mat-raised-button color="primary" type="submit" (click)="zodiac(month,day)" class="btn btn-outline-info"> Calculate </button>
                 </div>
             </th>
         </tr>
@@ -41,14 +12,10 @@
     <tbody>
         <tr>
             <th>
-                <input type="text" class="form-control" id="formGroupExampleInput" [(ngModel)]="month"
-                    placeholder="Enter month">
-                <input type="number" class="form-control" id="formGroupExampleInput" [(ngModel)]="day"
-                    placeholder="Enter day">
-                <p>{{value}}</p>
+                <input type="text" class="form-control" id="formGroupExampleInput" [(ngModel)]="month" placeholder="Enter month">
+                <input type="number" class="form-control" id="formGroupExampleInput" [(ngModel)]="day" placeholder="Enter day">
+                <p class="month-display">{{value}}</p>
             </th>
         </tr>
     </tbody>
 </table>
-
-<form>

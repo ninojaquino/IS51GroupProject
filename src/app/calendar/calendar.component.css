@@ -1,6 +1,6 @@
 .name-cal {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    
+    /* width: 90px; */
 }
 
 .events-buttons {
@@ -19,4 +19,9 @@
 .day-row {
     color: black;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.viewDate {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: #015670;
 }
