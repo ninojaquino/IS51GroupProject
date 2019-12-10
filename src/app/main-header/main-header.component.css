@@ -4,9 +4,12 @@
     padding: 0;
 }
 
+
+
 .heading {
     text-align: center;
     margin-top: 20px;
+    margin-bottom: 20px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 40px;
     letter-spacing: 2px;

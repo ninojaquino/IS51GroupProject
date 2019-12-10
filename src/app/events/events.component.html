@@ -1,26 +1,27 @@
 <h3>
   <div class="main-title">
-    Edit events
+    Edit Events!
   </div>
   <div class="clearfix"></div>
-  <button mat-raised-button color="warn" class="pull-right events-buttons" (click)="addEvent()">
+  <button mat-raised-button color="primary" class="btn btn-outline-info pull-right events-buttons" (click)="addEvent()">
     Add New Event
   </button>
-  <button mat-raised-button color="warn" class="pull-right events-buttons" (click)="saveItemsToLocalStorage(events)">
+  <button mat-raised-button color="primary" class="btn btn-outline-info pull-right events-buttons" (click)="saveItemsToLocalStorage(events)">
     Save Events
   </button>
-  <button mat-raised-button color="warn" class=" pull-right events-buttons"
+  <button mat-raised-button color="primary" class="btn btn-outline-info pull-right events-buttons"
     (click)="getItemsFromLocalStorage('events')">
     Load Events
   </button>
-  <button mat-raised-button color="warn" class="pull-right events-buttons" (click)="toastDailyChallenge()">
+  <button mat-raised-button color="primary" class="btn btn-outline-info pull-right events-buttons" (click)="toastDailyChallenge()">
     Daily Challenge
   </button>
 </h3>
+
 <div class="table-responsive">
   <table class="table table-bordered">
     <thead>
-      <tr>
+      <tr class="table-title">
         <th>Event</th>
         <th>Display Color</th>
         <th>Highlight color</th>
@@ -51,36 +52,10 @@
             altFormat="F j, Y H:i" placeholder="Not set" />
         </td>
         <td>
-          <button mat-flat-button color="warn" (click)="deleteEvent(event)">
-            <button mat-button color="warn">Warn</button>
-            <mat-icon svgIcon="thumbs-up" aria-hidden="false" aria-label="Example thumbs up SVG icon"></mat-icon>
-
-          </button>
+          <button mat-flat-button color="warn" (click)="deleteEvent(event)">Delete</button>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
-<!-- <ng-template #modalContent let-close="close">
-        <div class="modal-header">
-          <h5 class="modal-title">Event action occurred</h5>
-          <button type="button" class="close" (click)="close()">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div>
-            Action:
-            <pre>{{ modalData?.action }}</pre>
-          </div>
-          <div>
-            Event:
-            <pre>{{ modalData?.event | json }}</pre>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline-secondary" (click)="close()">
-            OK
-          </button>
-        </div>
-      </ng-template> -->
+
