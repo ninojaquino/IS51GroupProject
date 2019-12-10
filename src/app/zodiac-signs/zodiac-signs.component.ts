@@ -35,13 +35,11 @@ export class ZodiacSignsComponent implements OnInit {
     const astroSign = '';
     month = this.month.toLowerCase();
     day = this.day;
-    // checks month and date within the
-    // valid range of a specified zodiac
     if (month === 'december') {
 
       if (day < 22) {
         this.value = 'Sagittarius';
-      } else if (day > 22 && day <= 31) {
+      } else if (day >= 22 && day <= 31) {
         this.value = 'Capricorn';
       } else {
         this.value = 'Only 31 days in December!';
@@ -49,7 +47,7 @@ export class ZodiacSignsComponent implements OnInit {
     } else if (month === 'january') {
       if (day < 20) {
         this.value = 'Capricorn';
-      } else if (day > 20 && day <= 31) {
+      } else if (day >= 20 && day <= 31) {
         this.value = 'Aquarius';
       } else {
         this.value = 'Only 31 days in January!';
@@ -57,7 +55,7 @@ export class ZodiacSignsComponent implements OnInit {
     } else if (month === 'february') {
       if (day < 19) {
         this.value = 'Aquarius';
-      } else if (day > 19 && day <= 29) {
+      } else if (day >= 19 && day <= 29) {
         this.value = 'Pisces';
       } else {
         this.value = 'Only 29 days in February!';
@@ -65,7 +63,7 @@ export class ZodiacSignsComponent implements OnInit {
     } else if (month === 'march') {
       if (day < 21) {
         this.value = 'Pisces';
-      } else if (day > 21 && day <= 31) {
+      } else if (day >= 21 && day <= 31) {
         this.value = 'Aries';
       } else {
         this.value = 'Only 31 days in March!';
@@ -73,7 +71,7 @@ export class ZodiacSignsComponent implements OnInit {
     } else if (month === 'april') {
       if (day < 20) {
         this.value = 'Aries';
-      } else if (day > 20 && day <= 30) {
+      } else if (day >= 20 && day <= 30) {
         this.value = 'Taurus';
       } else {
         this.value = 'Only 30 days in April!';
@@ -81,7 +79,7 @@ export class ZodiacSignsComponent implements OnInit {
     } else if (month === 'may') {
       if (day < 21) {
         this.value = 'Taurus';
-      } else if (day > 21 && day <= 31) {
+      } else if (day >= 21 && day <= 31) {
         this.value = 'Gemini';
       } else {
         this.value = 'Only 31 days in May!';
@@ -89,7 +87,7 @@ export class ZodiacSignsComponent implements OnInit {
     } else if (month === 'june') {
       if (day < 21) {
         this.value = 'Gemini';
-      } else if (day > 21 && day <= 30) {
+      } else if (day >= 21 && day <= 30) {
         this.value = 'Cancer';
       } else {
         this.value = 'Only 30 days in June!';
@@ -97,7 +95,7 @@ export class ZodiacSignsComponent implements OnInit {
     } else if (month === 'july') {
       if (day < 23) {
         this.value = 'Cancer';
-      } else if (day > 23 && day <= 31) {
+      } else if (day >= 23 && day <= 31) {
         this.value = 'Leo';
       } else {
         this.value = 'Only 31 days in July!';
@@ -105,7 +103,7 @@ export class ZodiacSignsComponent implements OnInit {
     } else if (month === 'august') {
       if (day < 23) {
         this.value = 'Leo';
-      } else if (day > 23 && day <= 31) {
+      } else if (day >= 23 && day <= 31) {
         this.value = 'Virgo';
       } else {
         this.value = 'Only 31 days in August!';
@@ -113,7 +111,7 @@ export class ZodiacSignsComponent implements OnInit {
     } else if (month === 'september') {
       if (day < 23) {
         this.value = 'Virgo';
-      } else if (day > 23 && day <= 30) {
+      } else if (day >= 23 && day <= 30) {
         this.value = 'Libra';
       } else {
         this.value = 'Only 30 days in September!';
@@ -121,7 +119,7 @@ export class ZodiacSignsComponent implements OnInit {
     } else if (month === 'october') {
       if (day < 23) {
         this.value = 'Libra';
-      } else if (day > 23 && day <= 31) {
+      } else if (day >= 23 && day <= 31) {
         this.value = 'Scorpio';
       } else {
         this.value = 'Only 31 days in October!';
@@ -129,7 +127,7 @@ export class ZodiacSignsComponent implements OnInit {
     } else if (month === 'november') {
       if (day < 22) {
         this.value = 'scorpio';
-      } else if (day > 22 && day <= 30) {
+      } else if (day >= 22 && day <= 30) {
         this.value = 'Sagittarius';
       } else {
         this.value = 'Only 30 days in November!';
@@ -139,6 +137,7 @@ export class ZodiacSignsComponent implements OnInit {
     }
     return astroSign;
   }
+
 
   doSomething() {
     const map = new Map();

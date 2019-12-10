@@ -129,9 +129,7 @@ export class CalendarComponent implements OnInit {
     if (savedEvents == null) {
       localStorage.setItem('events', JSON.stringify(this.events));
     }
-    console.log('asdf asdf', savedEvents);
-    this.events = savedEvents;
-    // console.log('from calendar service on init', this.events);
+    this.events = savedEvents;  
 
   }
   dayClicked({ date, events }: { date: Date; events: CalendarEvent[] }): void {
@@ -190,11 +188,9 @@ export class CalendarComponent implements OnInit {
     if (localStorage.getItem(key)) {
       savedEvents = JSON.parse(localStorage.getItem(key));
     }
-    // console.log('from getItemsFromLocalStorage savedEvents', savedEvents);
 
     if (savedEvents && savedEvents.length > 0 ) {
       const parsedEvents = savedEvents.map((item, i, a) => {
-        // console.log('from map......', item);
         item.start = new Date(item.start);
         item.end = new Date(item.end);
         return item;

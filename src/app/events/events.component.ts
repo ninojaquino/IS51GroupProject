@@ -119,7 +119,7 @@ export class EventsComponent implements OnInit {
     this.toastChallenges = ['challenge 1: Have a conversation with a stranger', 'challenge 2: Treat your friend',
     'challenge 3: Call/Text a loved one and ask how they are doing',
     'challenge 4: Assist an elderly', 'challenge 5: Do as much push ups as you can', 'challenge 6: Run a mile or two',
-     'challenge 7: Do not browse social media for an hour'];
+    'challenge 7: Do not browse social media for an hour'];
   }
 
   ngOnInit() {
@@ -129,7 +129,6 @@ export class EventsComponent implements OnInit {
 
   deleteEvent(eventToDelete: CalendarEvent) {
     this.events = this.events.filter(event => event !== eventToDelete);
-    // this delete works it deletes the item from local storage but its giving an error gotta ask for help
     this.saveItemsToLocalStorage(this.events as any);
   }
   handleEvent(action: string, event: CalendarEvent): void {
